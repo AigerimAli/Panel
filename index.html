@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="./assets/scripts/script.js" defer></script>
+    <title> CRUD app</title>
+    <style> 
+        @import url("//fonts.googleapis.com/css?family=Pacifico&text=Pure");
+@import url("//fonts.googleapis.com/css?family=Roboto:700&text=css");
+@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=!");
+
+body {
+  min-height: 450px;
+  height: 100vh;
+  margin: 0;
+background: #1D2B64;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F8CDDA, #1D2B64);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F8CDDA, #1D2B64); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+table,
+        td,
+        tr {
+            padding: 12px;
+            color: white;
+            background: #f8cdda;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 20px;
+            font-family: 'Lucida Sans', 
+                'Lucida Sans Regular',
+                'Lucida Grande', 
+                'Lucida Sans Unicode',
+                Geneva, Verdana, sans-serif;
+        }
+  
+        /* Apply css properties to th */
+        th {
+            color: white;
+            border: 1px solid black;
+            border-collapse: collapse;
+            background: #1d2b64;
+        }
+  
+        /* Apply hover effect to td */
+        td:hover {
+            background: orangered;
+        }
+
+.stage {
+  height: 50vh;
+  width: 40vh;
+  margin: auto;
+  position: absolute;
+  top: 550px;
+  right: 100px;
+  bottom: 0;
+  left: 0;
+  perspective: 9999px;
+  transform-style: preserve-3d;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: ಠ_ಠ 5s infinite alternate ease-in-out -7.5s;
+  animation-fill-mode: forwards;
+  transform: rotateY(40deg) rotateX(33deg) translateZ(0);
+}
+
+.layer:after {
+  font: 150px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto", "Trebuchet MS", Helvetica, sans-serif;
+  content: "Panel";
+  white-space: pre;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  color: whitesmoke;
+  letter-spacing: -2px;
+  text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+}
+
+.layer:nth-child(1):after {
+  transform: translateZ(0px);
+}
+
+.layer:nth-child(2):after {
+  transform: translateZ(-1.5px);
+}
+
+.layer:nth-child(3):after {
+  transform: translateZ(-3px);
+}
+
+.layer:nth-child(4):after {
+  transform: translateZ(-4.5px);
+}
+
+.layer:nth-child(5):after {
+  transform: translateZ(-6px);
+}
+
+.layer:nth-child(6):after {
+  transform: translateZ(-7.5px);
+}
+
+.layer:nth-child(7):after {
+  transform: translateZ(-9px);
+}
+
+.layer:nth-child(8):after {
+  transform: translateZ(-10.5px);
+}
+
+.layer:nth-child(9):after {
+  transform: translateZ(-12px);
+}
+
+.layer:nth-child(10):after {
+  transform: translateZ(-13.5px);
+}
+
+.layer:nth-child(11):after {
+  transform: translateZ(-15px);
+}
+
+.layer:nth-child(12):after {
+  transform: translateZ(-16.5px);
+}
+
+.layer:nth-child(13):after {
+  transform: translateZ(-18px);
+}
+
+.layer:nth-child(14):after {
+  transform: translateZ(-19.5px);
+}
+
+.layer:nth-child(15):after {
+  transform: translateZ(-21px);
+}
+
+.layer:nth-child(16):after {
+  transform: translateZ(-22.5px);
+}
+
+.layer:nth-child(17):after {
+  transform: translateZ(-24px);
+}
+
+.layer:nth-child(18):after {
+  transform: translateZ(-25.5px);
+}
+
+.layer:nth-child(19):after {
+  transform: translateZ(-27px);
+}
+
+.layer:nth-child(20):after {
+  transform: translateZ(-28.5px);
+}
+
+.layer:nth-child(n+10):after {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.25);
+}
+
+.layer:nth-child(n+11):after {
+  -webkit-text-stroke: 15px #f8cdda;
+  text-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;
+}
+
+.layer:nth-child(n+12):after {
+  -webkit-text-stroke: 15px #0077ea;
+}
+
+.layer:last-child:after {
+  -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+}
+
+.layer:first-child:after {
+  color: #fff;
+  text-shadow: none;
+}
+
+@keyframes ಠ_ಠ {
+  100% {
+    transform: rotateY(-40deg) rotateX(-43deg);
+  }
+}
+    </style>
+</head>
+<body>
+    <template>
+        <tr>
+            <td class="align-middle name-td"></td>
+            <td class="align-middle age-td"></td>
+            <td class="button-td">
+                <button type="button" class="btn btn-outline-primary">Edit</button>
+                <button type="button" class="btn btn-outline-secondary">Delete</button>
+            </td>
+        </tr>
+    </template>
+    <template>
+        <button type="button" class="btn btn-outline-primary">Update User</button>
+        <button type="button" class="btn btn-outline-secondary">Cancel</button>
+    </template>    
+    <template>
+        <button class="btn btn-outline-success">Add User</button>
+    </template>
+
+    <div class="container">
+        <h3 class="mt-4">Welcome Admin!</h3>
+        <div class="row mt-4">
+            <div class="div1">
+                <div class="div2">
+                    <span class="input-group-text">Username</span>
+                    <input class="form-control" type="text" id="name" name="name" class="">
+                </div>
+                <div class="input-group w-100 mb-2">
+                    <span class="input-group-text">Password</span>
+                    <input class="form-control" type="text" name="age" id="age">
+                </div>
+                <div class="action-btns">
+                </div>
+            </div>
+            <div class="div3">
+                <table class="table table-striped table-hover table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">Username</td>
+                            <th scope="col">Password</td>
+                            <th scope="col">Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-content">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="stage">
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+</div>
+</body>
+</html>
