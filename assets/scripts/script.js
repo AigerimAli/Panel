@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     let dataArray = getArrayFromStorage();
     if (dataArray.length == 0) {
         addToLocalStorage("Harry", 97807475327);
-        addToLocalStorage('Georg', 97807475384);
+        addToLocalStorage('George', 97807475384);
         dataArray = getArrayFromStorage();
     }
     dataArray.forEach((obj) => {
