@@ -21,8 +21,8 @@ table,
         td,
         tr {
             padding: 12px;
-            color: white;
-            background: #8A9A5B;
+            color: black;
+            background: white;
             border: 1px solid black;
             border-collapse: collapse;
             font-size: 20px;
@@ -31,11 +31,12 @@ table,
                 'Lucida Grande', 
                 'Lucida Sans Unicode',
                 Geneva, Verdana, sans-serif;
+            
         }
   
         /* Apply css properties to th */
         th {
-            color: white;
+            color: black;
             border: 1px solid black;
             border-collapse: collapse;
             background: #1d2b64;
@@ -45,6 +46,17 @@ table,
         td:hover {
             background: orangered;
         }
+        
+        table {
+            position:relative;
+            left:30%;
+        }
+        
+.words{
+text-align:center;
+    color:white;
+    font-size: 20px;
+    font-family: Copperplate; }
 
 .stage {
   height: 50vh;
@@ -82,6 +94,7 @@ table,
   letter-spacing: -2px;
   text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
 }
+
 
 .layer:nth-child(1):after {
   transform: translateZ(0px);
@@ -211,9 +224,9 @@ table,
         <button class="btn btn-outline-success">Add User</button>
     </template>
 
-    <div class="container">
-        <h3 class="mt">Welcome Admin!</h3>
-        <div class="row">
+    <div class="words">
+        <h3 class="hello">Welcome Admin!</h3>
+        <div class="div0">
             <div class="div1">
                 <div class="div2">
                     <span class="input-group-text">Username</span>
